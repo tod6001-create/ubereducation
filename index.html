@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniTutor - Uber Cho Gia Sư Sinh Viên</title>
+    <!-- Sử dụng Tailwind CSS để giao diện hiện đại, đẹp mắt -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <!-- Thanh điều hướng (Navbar) -->
+    <nav class="bg-blue-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                <span class="text-xl font-bold tracking-wider">UniTutor</span>
+            </div>
+            <div class="hidden md:flex space-x-6 font-medium">
+                <a href="#" class="hover:text-blue-200 transition">Tìm Gia Sư</a>
+                <a href="#" class="hover:text-blue-200 transition">Lịch Học</a>
+                <a href="#" class="hover:text-blue-200 transition">Tin Nhắn</a>
+                <a href="#" class="hover:text-blue-200 transition">Trở Thành Gia Sư</a>
+            </div>
+            <div>
+                <button class="bg-amber-400 text-blue-900 px-4 py-2 rounded-full font-bold hover:bg-amber-300 transition shadow">
+                    Đăng Nhập
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Khuvực Bộ lọc & Tìm kiếm -->
+    <header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-12 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl md:text-4xl font-extrabold mb-4">Sinh Viên Giỏi Kèm Sinh Viên Yếu - Chi Phí Hợp Lý</h1>
+            <p class="text-blue-100 mb-8">Đặt gia sư công nghệ như đặt xe, biết trước giá, xem trước đánh giá.</p>
+            
+            <div class="bg-white rounded-lg p-4 shadow-xl text-gray-700 flex flex-col md:flex-row gap-3">
+                <div class="flex-1 min-w-[200px] flex items-center bg-gray-100 rounded px-3 py-2">
+                    <i class="fas fa-book text-gray-400 mr-2"></i>
+                    <input type="text" placeholder="Nhập môn học (Giải tích, Lý đại cương...)" class="bg-transparent w-full focus:outline-none text-sm">
+                </div>
+                <div class="w-full md:w-48 flex items-center bg-gray-100 rounded px-3 py-2">
+                    <i class="fas fa-filter text-gray-400 mr-2"></i>
+                    <select class="bg-transparent w-full focus:outline-none text-sm appearance-none">
+                        <option>Tất cả giá tiền</option>
+                        <option>Dưới 100k/h</option>
+                        <option>100k - 150k/h</option>
+                    </select>
+                </div>
+                <button class="bg-orange-500 text-white px-6 py-2 rounded font-bold hover:bg-orange-600 transition">
+                    Tìm Kiếm
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Danh sách Gia Sư (Giao diện giống Uber) -->
+    <main class="max-w-6xl mx-auto px-4 py-10">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
+            <span class="w-2 h-6 bg-blue-600 inline-block mr-2 rounded"></span>
+            Gia sư sẵn sàng quanh bạn
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Thẻ Gia Sư 1 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition">
+                <div class="p-5">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl border-2 border-blue-500">
+                                NM
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">Nguyễn Minh</h3>
+                                <p class="text-xs text-blue-600 font-semibold">ĐH Bách Khoa - K68</p>
+                            </div>
+                        </div>
+                        <span class="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded-full font-bold">Online</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600 font-medium">Chuyên dạy: <span class="text-gray-900">Giải tích 1, 2, Đại số tuyến tính</span></p>
+                        <div class="flex items-center mt-2 text-amber-500 text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.9 <span class="text-gray-400 text-xs ml-1">(42 đánh giá)</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-400">Giá theo giờ</p>
+                            <p class="text-lg font-bold text-red-500">80.000đ<span class="text-xs text-gray-500 font-normal">/h</span></p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="openChat('Nguyễn Minh')" class="p-2 text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition" title="Chat ngay">
+                                <i class="fas fa-comment-dots text-lg"></i>
+                            </button>
+                            <button onclick="bookTutor('Nguyễn Minh', '80.000đ')" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition">
+                                Đặt lịch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ Gia Sư 2 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition">
+                <div class="p-5">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xl border-2 border-pink-500">
+                                TH
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900">Trần Hà</h3>
+                                <p class="text-xs text-blue-600 font-semibold">ĐH Kinh tế Quốc dân</p>
+                            </div>
+                        </div>
+                        <span class="bg-gray-100 text-gray-600 text-xs px-2.5 py-1 rounded-full font-bold">Offline</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <p class="text-sm text-gray-600 font-medium">Chuyên dạy: <span class="text-gray-900">Kinh tế vĩ mô, Thống kê</span></p>
+                        <div class="flex items-center mt-2 text-amber-500 text-sm">
+                            <i class="fas fa-star mr-1"></i> 4.8 <span class="text-gray-400 text-xs ml-1">(29 đánh giá)</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-400">Giá theo giờ</p>
+                            <p class="text-lg font-bold text-red-500">90.000đ<span class="text-xs text-gray-500 font-normal">/h</span></p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="openChat('Trần Hà')" class="p-2 text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition" title="Chat ngay">
+                                <i class="fas fa-comment-dots text-lg"></i>
+                            </button>
+                            <button onclick="bookTutor('Trần Hà', '90.000đ')" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition">
+                                Đặt lịch
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Hộp thoại mô phỏng Đặt lịch & Chat (Tương tác cơ bản) -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-sm w-full p-6 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        function bookTutor(name, price) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Đặt lịch với ${name}</h3>
+                    <p class="text-sm text-gray-500 mb-4">Giá: <span class="text-red-500 font-bold">${price}/giờ</span></p>
+                    <div class="text-left space-y-3 mb-6">
+                        <label class="block text-xs font-bold uppercase text-gray-400">Chọn ngày giờ</label>
+                        <input type="datetime-local" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <button onclick="alert('Đã gửi yêu cầu đặt lịch! Hệ thống sẽ tự động trừ 15% hoa hồng khi hoàn thành.')" class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-bold hover:bg-blue-700 transition">
+                        Xác Nhận Đặt Lịch
+                    </button>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function openChat(name) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <div>
+                    <h3 class="text-lg font-bold mb-4 flex items-center text-gray-900 border-b pb-2">
+                        <i class="fas fa-circle text-green-500 text-xs mr-2"></i> Chat với ${name}
+                    </h3>
+                    <div class="h-48 bg-gray-50 rounded p-3 overflow-y-auto border mb-4 text-sm space-y-2">
+                        <p class="bg-gray-200 rounded p-2 max-w-[80%] text-left">Chào bạn, mình có thể giúp gì cho bạn môn học này?</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Nhập tin nhắn..." class="flex-1 border rounded px-3 py-1.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                        <button onclick="alert('Tin nhắn đã được gửi qua cổng Socket mockup!')" class="bg-blue-600 text-white px-4 py-1.5 rounded text-sm font-bold hover:bg-blue-700 transition">
+                            Gửi
+                        </button>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classToCode = document.getElementById('modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
