@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,6 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
 
-    <!-- NAVBAR NÂNG CẤP -->
     <nav class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('search-tab')">
@@ -49,64 +48,65 @@
                 </div>
                 <div>
                     <span class="heading-font text-2xl font-bold tracking-tight bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent">UniTutor</span>
-                    <span class="text-[10px] block text-slate-500 font-semibold uppercase tracking-widest -mt-1">Uber for Education</span>
+                    <span class="text-[10px] block text-slate-500 font-semibold uppercase tracking-widest -mt-1">Uber for Education • V2</span>
                 </div>
             </div>
 
             <!-- Tab Menu -->
             <div class="hidden md:flex space-x-1 bg-slate-950/60 p-1.5 rounded-xl border border-slate-800/80">
                 <button onclick="switchTab('search-tab')" id="nav-search-tab" class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-sky-500 text-slate-950 shadow-md">
-                    <i class="fa-solid fa-magnifying-glass mr-2"></i>Tìm Gia Sư
+                    <i class="fa-solid fa-users mr-2"></i>Gia Sư & Lớp Học
                 </button>
                 <button onclick="switchTab('booking-tab')" id="nav-booking-tab" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all duration-200">
-                    <i class="fa-solid fa-calendar mr-2"></i>Lịch Học
+                    <i class="fa-solid fa-chart-line mr-2"></i>Doanh Thu Admin
                 </button>
                 <button onclick="switchTab('chat-tab')" id="nav-chat-tab" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all duration-200 relative">
                     <i class="fa-solid fa-comments mr-2"></i>Tin Nhắn
                     <span id="unread-dot" class="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full hidden"></span>
                 </button>
                 <button onclick="switchTab('register-tab')" id="nav-register-tab" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-all duration-200">
-                    <i class="fa-solid fa-user-plus mr-2"></i>Trở Thành Gia Sư
+                    <i class="fa-solid fa-user-plus mr-2"></i>Đăng Ký Gia Sư
                 </button>
             </div>
 
-            <!-- Hệ thống Ví (Wallet System V2) -->
+            <!-- Thống kê doanh thu hoa hồng trực quan -->
             <div class="flex items-center space-x-4">
                 <div class="bg-slate-950 p-2 px-3.5 rounded-xl border border-slate-800 flex items-center space-x-3">
                     <div class="text-right">
-                        <span class="text-[10px] text-slate-500 block font-semibold uppercase tracking-wider">Số dư khả dụng</span>
-                        <span id="wallet-balance" class="font-bold text-sm text-emerald-400">500,000đ</span>
+                        <span class="text-[10px] text-slate-500 block font-semibold uppercase tracking-wider">Doanh thu hoa hồng đã thu</span>
+                        <span id="platform-revenue" class="font-bold text-sm text-emerald-400">0đ</span>
                     </div>
-                    <button onclick="depositMoney()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 p-1.5 rounded-lg transition" title="Nạp tiền vào ví">
-                        <i class="fa-solid fa-plus text-xs"></i>
-                    </button>
+                    <div class="bg-emerald-500/10 text-emerald-400 p-1.5 rounded-lg">
+                        <i class="fa-solid fa-wallet text-xs"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- TRANG TÌM KIẾM GIA SƯ & MAP (MẶC ĐỊNH) -->
     <div id="search-tab-content" class="tab-content flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-        <!-- Banner & Tìm kiếm nâng cao -->
+        <!-- Banner & Thống kê ứng dụng -->
         <div class="bg-gradient-to-br from-slate-900 to-indigo-950/50 p-8 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden mb-10">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.15),transparent_50%)]"></div>
             <div class="relative z-10 max-w-3xl">
-                <span class="bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">UniTutor v2.0 - Smart Escrow</span>
-                <h1 class="heading-font text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">Hệ thống gia sư kết nối thời gian thực</h1>
-                <p class="text-slate-400 text-lg mb-8">Sinh viên giỏi kèm sinh viên yếu. Cơ chế thanh toán ký quỹ an toàn tuyệt đối, hoa hồng chỉ thu 15% khi xác nhận hoàn thành buổi học.</p>
+                <span class="bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Dự án A • Hệ thống trung gian gia sư V2.0</span>
+                <h1 class="heading-font text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">Sàn kết nối sinh viên giỏi trực tiếp</h1>
+                <p class="text-slate-400 text-base mb-6">Mô hình đại lý tinh gọn giống Uber. Gia sư tự thương lượng giá dạy trực tiếp với phụ huynh/học sinh. Hệ thống chỉ thu phí đăng ký tài khoản và phí hoa hồng bàn giao lớp.</p>
                 
                 <!-- Thanh tìm kiếm lọc động -->
                 <div class="bg-slate-950 p-3 rounded-2xl border border-slate-800 flex flex-col md:flex-row gap-3">
                     <div class="flex-1 flex items-center bg-slate-900 rounded-xl px-4 py-3 border border-slate-800 focus-within:border-sky-500 transition">
-                        <i class="fa-solid fa-book-open text-sky-400 mr-3"></i>
-                        <input id="search-subject" oninput="filterTutors()" type="text" placeholder="Tìm môn học (Giải tích, Kinh tế vĩ mô, Python...)" class="bg-transparent w-full focus:outline-none text-slate-100 text-sm placeholder-slate-500">
+                        <i class="fa-solid fa-magnifying-glass text-sky-400 mr-3"></i>
+                        <input id="search-subject" oninput="filterData()" type="text" placeholder="Tìm gia sư theo môn học (Toán, Tiếng Anh, Python...) hoặc Khu vực..." class="bg-transparent w-full focus:outline-none text-slate-100 text-sm placeholder-slate-500">
                     </div>
                     <div class="w-full md:w-64 flex items-center bg-slate-900 rounded-xl px-4 py-3 border border-slate-800">
-                        <i class="fa-solid fa-money-bill-wave text-emerald-400 mr-3"></i>
-                        <select id="filter-price" onchange="filterTutors()" class="bg-transparent w-full focus:outline-none text-slate-100 text-sm">
-                            <option value="all" class="bg-slate-950 text-slate-300">Tất cả mức giá</option>
-                            <option value="under100" class="bg-slate-950 text-slate-300">Dưới 100.000đ/h</option>
-                            <option value="over100" class="bg-slate-950 text-slate-300">Trên 100.000đ/h</option>
+                        <i class="fa-solid fa-location-dot text-emerald-400 mr-3"></i>
+                        <select id="filter-area" onchange="filterData()" class="bg-transparent w-full focus:outline-none text-slate-100 text-sm">
+                            <option value="all" class="bg-slate-950 text-slate-300">Tất cả khu vực dạy</option>
+                            <option value="Cầu Giấy" class="bg-slate-950 text-slate-300">Quận Cầu Giấy</option>
+                            <option value="Hai Bà Trưng" class="bg-slate-950 text-slate-300">Hai Bà Trưng</option>
+                            <option value="Đống Đa" class="bg-slate-950 text-slate-300">Quận Đống Đa</option>
+                            <option value="Online" class="bg-slate-950 text-slate-300">Chỉ dạy Online</option>
                         </select>
                     </div>
                 </div>
@@ -114,14 +114,14 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- DANH SÁCH GIA SƯ -->
+            <!-- DANH SÁCH HỒ SƠ GIA SƯ -->
             <div class="lg:col-span-2 space-y-6">
                 <div class="flex justify-between items-center">
-                    <h2 class="heading-font text-2xl font-bold text-white flex items-center">
+                    <h2 class="heading-font text-xl font-bold text-white flex items-center">
                         <span class="w-2.5 h-6 bg-sky-500 inline-block mr-3 rounded-full"></span>
-                        Gia sư trực tuyến gần bạn
+                        Hồ sơ Gia sư đã xác minh chứng chỉ
                     </h2>
-                    <span id="tutors-count" class="text-sm text-slate-500 font-semibold">Đang hiển thị 4 gia sư</span>
+                    <span id="tutors-count" class="text-sm text-slate-500 font-semibold">Đang tải...</span>
                 </div>
                 
                 <div id="tutors-list-container" class="space-y-4">
@@ -129,67 +129,35 @@
                 </div>
             </div>
 
-            <!-- BẢN ĐỒ MÔ PHỎNG (UBER MAP MOCKUP) -->
+            <!-- BẢNG TIN LỚP HỌC MỚI CẦN GIA SƯ -->
             <div class="space-y-6">
-                <h2 class="heading-font text-2xl font-bold text-white flex items-center">
-                    <span class="w-2.5 h-6 bg-emerald-500 inline-block mr-3 rounded-full"></span>
-                    Định vị GPS mô phỏng
-                </h2>
+                <div class="flex justify-between items-center">
+                    <h2 class="heading-font text-xl font-bold text-white flex items-center">
+                        <span class="w-2.5 h-6 bg-emerald-500 inline-block mr-3 rounded-full"></span>
+                        Yêu cầu tìm Gia sư mới
+                    </h2>
+                </div>
                 
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden h-[450px] shadow-xl flex flex-col justify-between">
-                    <!-- Bản đồ dạng lưới vector -->
-                    <div class="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05),transparent_70%)]"></div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden shadow-xl space-y-4">
+                    <div class="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:25px_25px]"></div>
                     
-                    <!-- Bản đồ Mockup đồ họa sáng tạo -->
-                    <div class="relative w-full h-full flex items-center justify-center">
-                        <!-- Vị trí của bạn (Tâm bản đồ) -->
-                        <div class="absolute w-10 h-10 bg-sky-500/20 rounded-full flex items-center justify-center animate-ping"></div>
-                        <div class="absolute w-6 h-6 bg-sky-500 text-white rounded-full flex items-center justify-center border-2 border-slate-900 shadow-lg relative z-20" title="Vị trí của bạn">
-                            <i class="fa-solid fa-user text-[10px]"></i>
-                        </div>
-                        
-                        <!-- Gia sư 1 -->
-                        <div class="absolute top-[20%] left-[25%] text-center group cursor-pointer" onclick="highlightTutor('Nguyễn Minh')">
-                            <div class="w-8 h-8 bg-emerald-500 text-slate-950 rounded-full flex items-center justify-center border-2 border-slate-900 shadow-md group-hover:scale-110 transition">
-                                <span class="text-xs font-bold">NM</span>
-                            </div>
-                            <div class="bg-slate-950 border border-slate-800 text-[10px] px-2 py-0.5 rounded shadow mt-1 text-slate-300">Minh (500m)</div>
-                        </div>
-
-                        <!-- Gia sư 2 -->
-                        <div class="absolute bottom-[25%] right-[20%] text-center group cursor-pointer" onclick="highlightTutor('Trần Hà')">
-                            <div class="w-8 h-8 bg-emerald-500 text-slate-950 rounded-full flex items-center justify-center border-2 border-slate-900 shadow-md group-hover:scale-110 transition">
-                                <span class="text-xs font-bold">TH</span>
-                            </div>
-                            <div class="bg-slate-950 border border-slate-800 text-[10px] px-2 py-0.5 rounded shadow mt-1 text-slate-300">Hà (1.2km)</div>
-                        </div>
-
-                        <!-- Gia sư 3 -->
-                        <div class="absolute top-[35%] right-[30%] text-center group cursor-pointer" onclick="highlightTutor('Lê Hoàng')">
-                            <div class="w-8 h-8 bg-emerald-500 text-slate-950 rounded-full flex items-center justify-center border-2 border-slate-900 shadow-md group-hover:scale-110 transition">
-                                <span class="text-xs font-bold">LH</span>
-                            </div>
-                            <div class="bg-slate-950 border border-slate-800 text-[10px] px-2 py-0.5 rounded shadow mt-1 text-slate-300">Hoàng (800m)</div>
-                        </div>
-                    </div>
-
-                    <div class="relative z-10 bg-slate-950/80 backdrop-blur-sm p-4 rounded-2xl border border-slate-800 text-center">
-                        <p class="text-xs text-slate-400"><i class="fa-solid fa-location-crosshairs mr-1 text-sky-400"></i> Đang tự động quét GPS tìm sinh viên giỏi hỗ trợ trong bán kính 3km.</p>
+                    <p class="text-xs text-slate-400 relative z-10"><i class="fa-solid fa-circle-nodes text-emerald-400 mr-1.5"></i> Danh sách lớp đang chờ kết nối. Gia sư ứng tuyển sẽ thanh toán phí nhận lớp cho hệ thống.</p>
+                    
+                    <div id="classes-list-container" class="space-y-3 relative z-10 max-h-[380px] overflow-y-auto pr-1">
+                        <!-- Danh sách lớp học đang chờ được render từ script -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- TRANG QUẢN LÝ LỊCH HỌC & KÝ QUỸ -->
     <div id="booking-tab-content" class="tab-content flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full hidden">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Danh sách đặt lịch -->
+            <!-- Danh sách tiến trình giao dịch -->
             <div class="lg:col-span-2 space-y-6">
                 <h2 class="heading-font text-2xl font-bold text-white flex items-center">
                     <span class="w-2.5 h-6 bg-sky-500 inline-block mr-3 rounded-full"></span>
-                    Tiến trình học tập & Escrow
+                    Tiến trình nhận lớp & Duyệt Hồ Sơ
                 </h2>
                 
                 <div id="bookings-list-container" class="space-y-4">
@@ -197,43 +165,38 @@
                 </div>
             </div>
 
-            <!-- Tổng quan ví ký quỹ -->
+            <!-- Tổng quan cấu trúc hoa hồng -->
             <div class="space-y-6">
                 <h2 class="heading-font text-2xl font-bold text-white flex items-center">
                     <span class="w-2.5 h-6 bg-amber-500 inline-block mr-3 rounded-full"></span>
-                    Hệ thống ký quỹ
+                    Mô hình hoa hồng Dự án A
                 </h2>
 
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-6">
-                    <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-800/80">
-                        <div>
-                            <span class="text-xs text-slate-500 uppercase font-semibold tracking-wider block">Ví đang ký quỹ (Escrow)</span>
-                            <span id="escrow-balance" class="text-2xl font-extrabold text-amber-400">0đ</span>
-                        </div>
-                        <div class="bg-amber-500/10 text-amber-400 p-3 rounded-xl border border-amber-500/20">
-                            <i class="fa-solid fa-lock text-xl animate-pulse"></i>
+                    <div class="p-4 bg-slate-950 rounded-2xl border border-slate-800/80 space-y-2">
+                        <span class="text-xs text-slate-500 uppercase font-semibold tracking-wider block">Doanh thu thu được từ hệ thống</span>
+                        <div class="flex items-center justify-between">
+                            <span id="escrow-balance" class="text-2xl font-extrabold text-emerald-400">0đ</span>
+                            <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-xl border border-emerald-500/20">
+                                <i class="fa-solid fa-piggy-bank text-xl"></i>
+                            </div>
                         </div>
                     </div>
 
                     <div class="text-sm text-slate-400 leading-relaxed border-t border-slate-800 pt-4">
-                        <h4 class="font-bold text-slate-200 mb-2"><i class="fa-solid fa-shield-halved mr-1.5 text-emerald-400"></i> Cơ chế an toàn 100%:</h4>
-                        <ol class="list-decimal list-inside space-y-2 text-xs">
-                            <li>Đặt lịch học, ví khả dụng bị trừ và nạp vào <strong class="text-amber-400">Quỹ Escrow</strong>.</li>
-                            <li>Gia sư giảng dạy & hoàn thành buổi học.</li>
-                            <li>Cả 2 bên xác nhận, hệ thống giải ngân:
-                                <ul class="list-disc list-inside pl-4 mt-1 text-slate-500">
-                                    <li>Chuyển <strong class="text-emerald-400">85%</strong> tiền cho Gia sư.</li>
-                                    <li>Thu phí vận hành <strong class="text-sky-400">15%</strong>.</li>
-                                </ul>
-                            </li>
+                        <h4 class="font-bold text-slate-200 mb-2"><i class="fa-solid fa-shield-halved mr-1.5 text-sky-400"></i> Cơ chế thu phí đại lý:</h4>
+                        <ol class="list-decimal list-inside space-y-2.5 text-xs">
+                            <li><strong class="text-white">Phí đăng ký gia sư:</strong> Thu phí một lần (<span class="text-amber-400">50.000đ</span>) để đội ngũ admin kiểm tra và đối chiếu tệp minh chứng (bằng cấp, IELTS, chứng chỉ thực tế).</li>
+                            <li><strong class="text-white">Phí nhận lớp:</strong> Gia sư đóng phí dịch vụ giao lớp trung bình <span class="text-amber-400">100.000đ - 200.000đ</span> tùy thuộc vào quy mô lớp học khi nhận lớp thành công.</li>
+                            <li>Hệ thống cam kết hoàn phí nhận lớp 100% nếu lớp học hỏng do lỗi từ phía học sinh/phụ huynh.</li>
                         </ol>
                     </div>
 
-                    <!-- LỊCH SỬ GIAO DỊCH -->
+                    <!-- LỊCH SỬ BIẾN ĐỘNG DOANH THU -->
                     <div class="border-t border-slate-800 pt-4">
-                        <h4 class="font-bold text-slate-200 text-sm mb-3"><i class="fa-solid fa-receipt mr-1.5 text-sky-400"></i> Lịch sử giao dịch ví</h4>
+                        <h4 class="font-bold text-slate-200 text-sm mb-3"><i class="fa-solid fa-receipt mr-1.5 text-sky-400"></i> Lịch sử thu phí hệ thống</h4>
                         <div id="transactions-log" class="space-y-2 max-h-[160px] overflow-y-auto text-xs">
-                            <!-- Nhật ký log ví -->
+                            <!-- Nhật ký ghi nhận doanh thu từ gia sư đăng ký hoặc nhận lớp -->
                         </div>
                     </div>
                 </div>
@@ -241,13 +204,12 @@
         </div>
     </div>
 
-    <!-- TRANG TIN NHẮN CHAT REAL-TIME MOCK -->
     <div id="chat-tab-content" class="tab-content flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full hidden">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden h-[550px] shadow-2xl flex">
             <!-- Danh sách bạn chat -->
             <div class="w-1/3 border-r border-slate-800 bg-slate-950/60 flex flex-col">
                 <div class="p-4 border-b border-slate-800">
-                    <span class="heading-font font-bold text-lg text-white">Tin nhắn gần đây</span>
+                    <span class="heading-font font-bold text-lg text-white">Trò chuyện thương lượng</span>
                 </div>
                 <div id="chat-tutor-list" class="flex-grow overflow-y-auto divide-y divide-slate-800/50">
                     <!-- Danh sách liên hệ chat -->
@@ -266,7 +228,7 @@
 
                 <div class="p-4 border-t border-slate-800 bg-slate-950/40">
                     <div class="flex gap-3">
-                        <input id="chat-input-text" type="text" placeholder="Nhập nội dung tin nhắn..." class="flex-grow bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-sky-500 transition">
+                        <input id="chat-input-text" type="text" placeholder="Trao đổi trực tiếp về khu vực dạy, lịch dạy..." class="flex-grow bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-sky-500 transition">
                         <button onclick="sendChatMessage()" class="bg-sky-500 hover:bg-sky-600 text-slate-950 px-6 py-3 rounded-2xl font-bold text-sm shadow-lg shadow-sky-500/10 transition flex items-center space-x-1">
                             <span>Gửi</span>
                             <i class="fa-solid fa-paper-plane"></i>
@@ -277,15 +239,14 @@
         </div>
     </div>
 
-    <!-- TRANG ĐĂNG KÝ TRỞ THÀNH GIA SƯ -->
     <div id="register-tab-content" class="tab-content flex-grow max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full hidden">
         <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
             <div class="text-center">
                 <div class="w-16 h-16 bg-sky-500/10 text-sky-400 rounded-full flex items-center justify-center mx-auto mb-4 border border-sky-500/20">
                     <i class="fa-solid fa-graduation-cap text-2xl"></i>
                 </div>
-                <h2 class="heading-font text-2xl font-bold text-white">Đăng ký cộng tác gia sư</h2>
-                <p class="text-slate-400 text-sm mt-1">Đồng hành giúp đỡ bạn học yếu hơn và kiếm thu nhập ổn định.</p>
+                <h2 class="heading-font text-2xl font-bold text-white">Đăng ký cộng tác gia sư đối tác</h2>
+                <p class="text-slate-400 text-sm mt-1">Đăng tải hồ sơ, nộp phí thẩm định để kích hoạt tài khoản kết nối của hệ thống UniTutor.</p>
             </div>
 
             <form id="tutor-register-form" onsubmit="submitTutorRegistration(event)" class="space-y-4">
@@ -296,35 +257,43 @@
                     </div>
                     <div>
                         <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Trường Đại học</label>
-                        <input type="text" required id="reg-university" placeholder="ĐH Bách Khoa Hà Nội" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
+                        <input type="text" required id="reg-university" placeholder="ĐH Ngoại Thương / ĐH Bách Khoa..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Điểm tích lũy (GPA) tối thiểu 3.2</label>
-                        <input type="number" step="0.01" max="4.0" required id="reg-gpa" placeholder="3.5" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
+                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Chứng chỉ & Thành tích nổi bật</label>
+                        <input type="text" required id="reg-achievements" placeholder="IELTS 8.0, Giải Ba Toán Thành Phố..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Môn học thế mạnh (Cắt nhau dấu phẩy)</label>
-                        <input type="text" required id="reg-subjects" placeholder="Giải tích 1, Đại số, Vật lý 1" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
+                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Khu vực nhận dạy (Ngăn cách bằng dấu phẩy)</label>
+                        <input type="text" required id="reg-areas" placeholder="Quận Cầu Giấy, Quận Đống Đa, Online..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Giá tiền yêu cầu / Giờ (VNĐ)</label>
-                        <input type="number" required id="reg-price" placeholder="100000" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
+                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Môn học nhận dạy</label>
+                        <input type="text" required id="reg-subjects" placeholder="Tiếng Anh, Đại số tuyến tính, Python..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-sky-500 text-slate-200">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Ảnh Thẻ Sinh Viên / CCCD (Mockup)</label>
-                        <input type="file" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-slate-500 focus:outline-none">
+                        <label class="block text-xs font-semibold text-slate-400 mb-1.5 uppercase">Ảnh bằng cấp / Minh chứng chứng chỉ (Bắt buộc)</label>
+                        <input type="file" required id="reg-proof" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 text-sm text-slate-400 focus:outline-none file:mr-4 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-sky-500/10 file:text-sky-400 hover:file:bg-sky-500/20">
+                    </div>
+                </div>
+
+                <div class="p-4 bg-slate-950/60 border border-amber-500/20 rounded-2xl text-xs text-amber-400 leading-relaxed flex items-start space-x-3">
+                    <i class="fa-solid fa-circle-info text-base mt-0.5"></i>
+                    <div>
+                        <strong class="font-bold block mb-1">Quy định thẩm định hồ sơ:</strong>
+                        Mỗi lượt đăng ký yêu cầu phí xử lý thông tin và kích hoạt hồ sơ là <span class="text-emerald-400 font-bold">50.000đ</span>. Đội ngũ admin sẽ đối chiếu trực tiếp file minh chứng bạn tải lên trước khi đưa hồ sơ của bạn hiển thị trên trang chủ tìm kiếm.
                     </div>
                 </div>
 
                 <div class="border-t border-slate-800 pt-4 flex justify-end">
                     <button type="submit" class="bg-gradient-to-r from-sky-400 to-emerald-400 text-slate-950 px-8 py-3 rounded-xl font-bold text-sm shadow-xl hover:opacity-90 transition">
-                        Gửi hồ sơ xét duyệt
+                        Gửi hồ sơ & Nộp phí kích hoạt
                     </button>
                 </div>
             </form>
@@ -334,30 +303,39 @@
     <!-- FOOTER -->
     <footer class="bg-slate-950 border-t border-slate-900 py-6 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
-            <p>© 2026 UniTutor. Hệ thống Uber Gia sư đạt chuẩn V2.0.</p>
+            <p>© 2026 UniTutor. Hệ thức Uber Gia sư chuyên nghiệp V2.0.</p>
             <p class="mt-2 md:mt-0 font-mono">Dự án A • Code 130707</p>
         </div>
     </footer>
 
-    <!-- SCRIPT LOGIC (MÔ PHỎNG DỮ LIỆU) -->
     <script>
         // DỮ LIỆU GIA SƯ MẶC ĐỊNH
         const DEFAULT_TUTORS = [
-            { id: 1, name: 'Nguyễn Minh', university: 'ĐH Bách Khoa - K68', gpa: 3.82, subjects: 'Giải tích 1, Giải tích 2, Đại số tuyến tính', rating: 4.9, reviewCount: 42, price: 80000, status: 'Online', distance: '500m' },
-            { id: 2, name: 'Trần Hà', university: 'ĐH Kinh Tế Quốc Dân', gpa: 3.65, subjects: 'Kinh tế vĩ mô, Thống kê, Tài chính doanh nghiệp', rating: 4.8, reviewCount: 29, price: 90000, status: 'Online', distance: '1.2km' },
-            { id: 3, name: 'Lê Hoàng', university: 'ĐH Bách Khoa Hà Nội', gpa: 3.91, subjects: 'Lập trình C/C++, Python cơ bản, Cấu trúc dữ liệu', rating: 5.0, reviewCount: 18, price: 120000, status: 'Online', distance: '800m' },
-            { id: 4, name: 'Phạm Linh', university: 'ĐH Ngoại Thương', gpa: 3.75, subjects: 'Tiếng Anh giao tiếp, TOEIC, Writing nâng cao', rating: 4.7, reviewCount: 35, price: 100000, status: 'Offline', distance: '1.5km' }
+            { id: 1, name: 'Nguyễn Minh', university: 'ĐH Bách Khoa - K68', achievements: 'Giải Ba Toán thành phố, IELTS 7.5', subjects: 'Giải tích 1, Giải tích 2, Đại số tuyến tính', areas: 'Hai Bà Trưng, Đống Đa', rating: 4.9, reviewCount: 42, status: 'Online', distance: '500m' },
+            { id: 2, name: 'Trần Hà', university: 'ĐH Kinh Tế Quốc Dân', achievements: 'Giải Nhất HSG tỉnh môn Toán, GPA 3.9', subjects: 'Kinh tế vĩ mô, Thống kê, Tài chính doanh nghiệp', areas: 'Cầu Giấy, Nam Từ Liêm', rating: 4.8, reviewCount: 29, status: 'Online', distance: '1.2km' },
+            { id: 3, name: 'Lê Hoàng', university: 'ĐH Bách Khoa Hà Nội', achievements: 'IELTS 8.0, Giải Ba Tin học trẻ quốc gia', subjects: 'Lập trình C/C++, Python cơ bản, Cấu trúc dữ liệu', areas: 'Cầu Giấy, Tây Hồ, Đống Đa', rating: 5.0, reviewCount: 18, status: 'Online', distance: '800m' },
+            { id: 4, name: 'Phạm Linh', university: 'ĐH Ngoại Thương', achievements: 'IELTS 8.5, Cựu chuyên Anh Amsterdam', subjects: 'Tiếng Anh giao tiếp, TOEIC, Writing nâng cao', areas: 'Online, Ba Đình, Cầu Giấy', rating: 4.7, reviewCount: 35, status: 'Offline', distance: '1.5km' }
+        ];
+
+        // DỮ LIỆU LỚP HỌC ĐANG CHỜ MẶC ĐỊNH
+        const DEFAULT_CLASSES = [
+            { id: 'LH-4091', subject: 'Giải tích 1 đại cương', areas: 'Hai Bà Trưng (Trực tiếp)', commission: 150000, desc: 'Kèm gấp ôn thi cuối kỳ cho sinh viên năm nhất', status: 'Đang tìm gia sư' },
+            { id: 'LH-8821', subject: 'Kinh tế lượng & Thống kê', areas: 'Cầu Giấy', commission: 200000, desc: 'Lớp học nhóm 3 người, cần gia sư vững kiến thức kiểm định giả thuyết', status: 'Đang tìm gia sư' },
+            { id: 'LH-3012', subject: 'IELTS Writing Task 2', areas: 'Online', commission: 100000, desc: 'Sửa bài viết và luyện phản xạ nói band 6.5', status: 'Đang tìm gia sư' }
         ];
 
         // Khởi tạo State ban đầu từ localStorage (nếu có)
         let state = JSON.parse(localStorage.getItem('unitutor_state_v2')) || {
-            wallet: 500000,
-            escrow: 0,
+            platform_revenue: 150000, // Doanh thu hoa hồng đã tích lũy từ trước
             tutors: DEFAULT_TUTORS,
-            bookings: [],
+            classes: DEFAULT_CLASSES,
+            bookings: [
+                { id: 'AP-1021', name: 'Nguyễn Minh', type: 'Duyệt hồ sơ', charge: 50000, status: 'Đã kích hoạt hồ sơ', time: 'Hôm qua' },
+                { id: 'AP-3092', name: 'Lê Hoàng', type: 'Nhận lớp LH-3012', charge: 100000, status: 'Đã hoàn tất kết nối', time: 'Hôm nay' }
+            ],
             chatHistory: {},
             transactions: [
-                { time: new Date().toLocaleTimeString(), desc: 'Nạp tiền khuyến khích khởi tạo', amount: 500000, type: 'in' }
+                { time: new Date().toLocaleTimeString(), desc: 'Hệ thống UniTutor khởi động hoàn tất', amount: 150000, type: 'in' }
             ],
             activeChat: null
         };
@@ -368,22 +346,20 @@
             updateUI();
         }
 
-        // Cập nhật lại toàn bộ giao diện dựa trên State hiện tại
         function updateUI() {
-            // Cập nhật ví khả dụng
-            document.getElementById('wallet-balance').innerText = state.wallet.toLocaleString('vi-VN') + 'đ';
-            // Cập nhật ví ký quỹ
-            document.getElementById('escrow-balance').innerText = state.escrow.toLocaleString('vi-VN') + 'đ';
+            // Cập nhật tổng doanh thu hoa hồng của Admin
+            document.getElementById('platform-revenue').innerText = state.platform_revenue.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('escrow-balance').innerText = state.platform_revenue.toLocaleString('vi-VN') + 'đ';
 
-            // Cập nhật Log giao dịch
+            // Cập nhật Nhật ký thu phí hoa hồng
             const logContainer = document.getElementById('transactions-log');
             logContainer.innerHTML = '';
             if (state.transactions.length === 0) {
-                logContainer.innerHTML = `<p class="text-slate-600 italic">Chưa có giao dịch phát sinh.</p>`;
+                logContainer.innerHTML = `<p class="text-slate-600 italic">Chưa phát sinh doanh thu hoa hồng.</p>`;
             } else {
                 state.transactions.slice().reverse().forEach(tx => {
-                    const typeColor = tx.type === 'in' ? 'text-emerald-400' : 'text-rose-400';
-                    const symbol = tx.type === 'in' ? '+' : '-';
+                    const typeColor = tx.type === 'in' ? 'text-emerald-400' : 'text-slate-500';
+                    const symbol = tx.type === 'in' ? '+' : '';
                     logContainer.innerHTML += `
                         <div class="flex justify-between items-center p-2 bg-slate-950 rounded border border-slate-900">
                             <div>
@@ -397,6 +373,7 @@
             }
 
             renderTutors();
+            renderClasses();
             renderBookings();
             renderChatList();
         }
@@ -420,69 +397,26 @@
             }
         }
 
-        // NẠP TIỀN VÀO VÍ
-        async function depositMoney() {
-            const { value: amount } = await Swal.fire({
-                title: 'Nạp tiền vào tài khoản',
-                input: 'select',
-                inputOptions: {
-                    '50000': '50.000 VNĐ',
-                    '100000': '100.000 VNĐ',
-                    '200000': '200.000 VNĐ',
-                    '500000': '500.000 VNĐ'
-                },
-                inputPlaceholder: 'Chọn số tiền nạp',
-                showCancelButton: true,
-                confirmButtonColor: '#0ea5e9',
-                cancelButtonColor: '#334155',
-                confirmButtonText: 'Xác nhận nạp',
-                cancelButtonText: 'Hủy bỏ',
-                background: '#0f172a',
-                color: '#f8fafc'
-            });
-
-            if (amount) {
-                const numericAmount = parseInt(amount);
-                state.wallet += numericAmount;
-                state.transactions.push({
-                    time: new Date().toLocaleTimeString(),
-                    desc: 'Nạp tiền vào ví qua cổng MoMo/VNPAY',
-                    amount: numericAmount,
-                    type: 'in'
-                });
-                saveState();
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Nạp tiền thành công!',
-                    text: `Đã nạp thêm +${numericAmount.toLocaleString('vi-VN')}đ vào tài khoản khả dụng.`,
-                    confirmButtonColor: '#0ea5e9',
-                    background: '#0f172a',
-                    color: '#f8fafc'
-                });
-            }
-        }
-
-        // LỌC DANH SÁCH GIA SƯ THEO SUBJECT & PRICE
-        function filterTutors() {
+        // BỘ LỌC TÌM KIẾM
+        function filterData() {
             renderTutors();
         }
 
-        // HIỂN THỊ DANH SÁCH GIA SƯ
         function renderTutors() {
             const searchSubject = document.getElementById('search-subject').value.toLowerCase();
-            const filterPrice = document.getElementById('filter-price').value;
+            const filterArea = document.getElementById('filter-area').value;
             const container = document.getElementById('tutors-list-container');
             container.innerHTML = '';
 
             let filtered = state.tutors.filter(tutor => {
-                const matchSubject = tutor.subjects.toLowerCase().includes(searchSubject);
-                let matchPrice = true;
-                if (filterPrice === 'under100') {
-                    matchPrice = tutor.price < 100000;
-                } else if (filterPrice === 'over100') {
-                    matchPrice = tutor.price >= 100000;
+                const matchSubjectOrName = tutor.subjects.toLowerCase().includes(searchSubject) || 
+                                           tutor.name.toLowerCase().includes(searchSubject) || 
+                                           tutor.areas.toLowerCase().includes(searchSubject);
+                let matchArea = true;
+                if (filterArea !== 'all') {
+                    matchArea = tutor.areas.includes(filterArea);
                 }
-                return matchSubject && matchPrice;
+                return matchSubjectOrName && matchArea;
             });
 
             document.getElementById('tutors-count').innerText = `Đang hiển thị ${filtered.length} gia sư`;
@@ -491,7 +425,7 @@
                 container.innerHTML = `
                     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center">
                         <i class="fa-solid fa-face-frown text-slate-500 text-3xl mb-3"></i>
-                        <p class="text-slate-400 text-sm">Không tìm thấy gia sư phù hợp với nhu cầu của bạn.</p>
+                        <p class="text-slate-400 text-sm">Không tìm thấy hồ sơ gia sư phù hợp khu vực hoặc môn học của bạn.</p>
                     </div>
                 `;
                 return;
@@ -514,18 +448,21 @@
                                     <div class="flex items-center space-x-2">
                                         <h3 class="font-bold text-slate-200 text-base hover:text-sky-400 cursor-pointer" onclick="openProfileTutor('${tutor.name}')">${tutor.name}</h3>
                                         ${statusBadge}
+                                        <span class="bg-sky-500/10 text-sky-400 text-[9px] font-semibold border border-sky-500/20 px-1.5 py-0.5 rounded flex items-center"><i class="fa-solid fa-circle-check mr-1"></i>Đã thẩm định minh chứng</span>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-0.5"><i class="fa-solid fa-school mr-1"></i> ${tutor.university} • GPA: <span class="text-emerald-400 font-semibold">${tutor.gpa}</span></p>
+                                    <p class="text-xs text-slate-400 mt-0.5"><i class="fa-solid fa-school mr-1"></i> ${tutor.university}</p>
+                                    <p class="text-xs text-emerald-400 mt-1"><i class="fa-solid fa-award mr-1"></i> ${tutor.achievements}</p>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <p class="text-xs text-slate-500">Học phí theo giờ</p>
-                                <span class="font-bold text-lg text-emerald-400">${tutor.price.toLocaleString('vi-VN')}đ</span><span class="text-xs text-slate-500">/h</span>
+                                <span class="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-xs text-slate-400 inline-block">
+                                    <i class="fa-solid fa-map-location-dot text-sky-400 mr-1.5"></i>Khu vực: ${tutor.areas}
+                                </span>
                             </div>
                         </div>
 
                         <div class="mt-3 bg-slate-950/60 rounded-xl p-3 border border-slate-800/80">
-                            <p class="text-xs text-slate-400 font-medium">Lĩnh vực hỗ trợ:</p>
+                            <p class="text-xs text-slate-400 font-medium">Môn nhận kèm:</p>
                             <p class="text-sm text-slate-200 mt-0.5">${tutor.subjects}</p>
                         </div>
 
@@ -533,17 +470,13 @@
                             <div class="flex items-center space-x-1.5 text-xs text-amber-400">
                                 <i class="fa-solid fa-star"></i>
                                 <span class="font-bold">${tutor.rating}</span>
-                                <span class="text-slate-500">(${tutor.reviewCount} đánh giá)</span>
-                                <span class="text-slate-600">•</span>
-                                <span class="text-slate-500"><i class="fa-solid fa-location-dot text-slate-600 mr-0.5"></i> ${tutor.distance}</span>
+                                <span class="text-slate-500">(${tutor.reviewCount} đánh giá chất lượng)</span>
                             </div>
                             
                             <div class="flex space-x-2">
-                                <button onclick="startChat('${tutor.name}')" class="bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700 p-2 rounded-xl transition" title="Liên hệ thỏa thuận">
+                                <button onclick="startChat('${tutor.name}')" class="bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700 px-4 py-2 rounded-xl text-xs font-semibold transition flex items-center space-x-1.5">
                                     <i class="fa-solid fa-message"></i>
-                                </button>
-                                <button onclick="bookingRequest(${tutor.id})" class="bg-sky-500 hover:bg-sky-600 text-slate-950 text-xs px-4 py-2 rounded-xl font-bold transition">
-                                    Đặt gia sư ngay
+                                    <span>Trao đổi / Thuê gia sư</span>
                                 </button>
                             </div>
                         </div>
@@ -552,89 +485,87 @@
             });
         }
 
-        // ĐẶT LỊCH GIA SƯ (BOOKING PROCESS)
-        async function bookingRequest(tutorId) {
-            const tutor = state.tutors.find(t => t.id === tutorId);
-            if (!tutor) return;
+        function renderClasses() {
+            const container = document.getElementById('classes-list-container');
+            container.innerHTML = '';
 
-            const { value: hours } = await Swal.fire({
-                title: `Đặt lịch học với ${tutor.name}`,
-                text: `Học phí là ${tutor.price.toLocaleString('vi-VN')}đ/giờ. Chọn tổng số giờ học muốn đặt:`,
-                input: 'range',
-                inputLabel: 'Số giờ',
-                inputAttributes: {
-                    min: '1',
-                    max: '5',
-                    step: '1'
-                },
-                inputValue: '2',
+            state.classes.forEach(cls => {
+                const isClaimed = cls.status === 'Đã nhận lớp';
+                const statusBadge = isClaimed 
+                    ? '<span class="bg-slate-800 text-slate-400 text-[10px] px-2 py-0.5 rounded font-bold">Đã bàn giao</span>'
+                    : '<span class="bg-emerald-500/20 text-emerald-400 text-[10px] px-2 py-0.5 rounded font-bold animate-pulse">Tìm gia sư</span>';
+
+                const actionButton = isClaimed 
+                    ? '<button disabled class="w-full mt-3 bg-slate-800 text-slate-500 text-xs py-2 rounded-lg cursor-not-allowed">Đã có người nhận</button>'
+                    : `<button onclick="acceptClass('${cls.id}')" class="w-full mt-3 bg-gradient-to-r from-emerald-500 to-sky-500 hover:opacity-95 text-slate-950 font-bold text-xs py-2 rounded-lg transition">Đăng ký nhận lớp này (Phí: ${cls.commission.toLocaleString('vi-VN')}đ)</button>`;
+
+                container.innerHTML += `
+                    <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 hover:border-emerald-500/30 transition shadow">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-bold text-slate-200 text-sm">${cls.subject}</h4>
+                            ${statusBadge}
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1"><i class="fa-solid fa-location-dot text-emerald-400 mr-1"></i> Khu vực: ${cls.areas}</p>
+                        <p class="text-[11px] text-slate-400 mt-0.5">${cls.desc}</p>
+                        ${actionButton}
+                    </div>
+                `;
+            });
+        }
+
+        // ĐĂNG KÝ NHẬN LỚP - GIA SƯ THANH TOÁN PHÍ DỊCH VỤ CHO HỆ THỐNG
+        async function acceptClass(classId) {
+            const cls = state.classes.find(c => c.id === classId);
+            if (!cls) return;
+
+            const { isConfirmed } = await Swal.fire({
+                title: 'Đăng ký nhận lớp này?',
+                html: `
+                    <div class="text-left text-sm space-y-2 mt-3">
+                        <p><strong>Lớp:</strong> ${cls.subject}</p>
+                        <p><strong>Khu vực:</strong> ${cls.areas}</p>
+                        <p><strong>Phí nhận lớp (Ủy thác đại lý):</strong> <span class="text-emerald-400 font-bold">${cls.commission.toLocaleString('vi-VN')}đ</span></p>
+                        <p class="text-xs text-slate-400 italic">Lưu ý: Bạn cần chuyển khoản hoặc nạp phí hoa hồng nhận lớp này để hệ thống phê duyệt hồ sơ nhận lớp và bàn giao số điện thoại học sinh.</p>
+                    </div>
+                `,
+                icon: 'info',
                 showCancelButton: true,
-                confirmButtonColor: '#0ea5e9',
+                confirmButtonColor: '#10b981',
                 cancelButtonColor: '#334155',
-                confirmButtonText: 'Đi tiếp',
-                cancelButtonText: 'Đóng lại',
+                confirmButtonText: 'Đồng ý nộp phí & Nhận lớp',
+                cancelButtonText: 'Hủy bỏ',
                 background: '#0f172a',
                 color: '#f8fafc'
             });
 
-            if (hours) {
-                const totalCost = tutor.price * parseInt(hours);
-                
-                // Kiểm tra tài khoản khả dụng
-                if (state.wallet < totalCost) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Số dư khả dụng không đủ!',
-                        html: `Học phí buổi học là <strong>${totalCost.toLocaleString('vi-VN')}đ</strong>. Bạn đang thiếu <strong>${(totalCost - state.wallet).toLocaleString('vi-VN')}đ</strong>. Hãy nạp thêm tiền vào ví để thanh toán!`,
-                        confirmButtonColor: '#0ea5e9',
-                        confirmButtonText: 'Nạp tiền ngay',
-                        background: '#0f172a',
-                        color: '#f8fafc'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            depositMoney();
-                        }
-                    });
-                    return;
-                }
-
-                // Tiền tiến hành ký quỹ
-                state.wallet -= totalCost;
-                state.escrow += totalCost;
+            if (isConfirmed) {
+                // Tăng doanh thu cho nền tảng
+                state.platform_revenue += cls.commission;
+                cls.status = 'Đã nhận lớp';
 
                 const newBooking = {
-                    id: 'BK-' + Math.floor(1000 + Math.random() * 9000),
-                    tutorName: tutor.name,
-                    university: tutor.university,
-                    hours: parseInt(hours),
-                    cost: totalCost,
-                    status: 'Ký quỹ thành công (Escrow Locked)',
+                    id: 'AP-' + Math.floor(1000 + Math.random() * 9000),
+                    name: 'Hệ thống UniTutor',
+                    type: `Nhận lớp ${cls.id} (${cls.subject})`,
+                    charge: cls.commission,
+                    status: 'Đã thanh toán phí - Đã bàn giao lớp',
                     time: new Date().toLocaleDateString('vi-VN') + ' - ' + new Date().toLocaleTimeString('vi-VN')
                 };
 
                 state.bookings.push(newBooking);
                 state.transactions.push({
                     time: new Date().toLocaleTimeString(),
-                    desc: `Tạm giữ ký quỹ Booking ${newBooking.id}`,
-                    amount: totalCost,
-                    type: 'out'
+                    desc: `Phí nhận lớp từ lớp học ${cls.id}`,
+                    amount: cls.commission,
+                    type: 'in'
                 });
 
                 saveState();
 
-                // Tạo tin nhắn tự động từ phía hệ thống và gia sư
-                const tutorMsgKey = tutor.name;
-                if (!state.chatHistory[tutorMsgKey]) {
-                    state.chatHistory[tutorMsgKey] = [];
-                }
-                state.chatHistory[tutorMsgKey].push({ sender: 'System', text: `🛎️ Hệ thống: Yêu cầu đặt lịch học ${hours} giờ thành công! Mã booking: ${newBooking.id}. Tổng tiền ký quỹ: ${totalCost.toLocaleString('vi-VN')}đ đang được khóa trong tài khoản chung bảo vệ.` });
-                state.chatHistory[tutorMsgKey].push({ sender: tutor.name, text: `Chào bạn nhé, mình đã nhận được thông báo đặt lịch học từ hệ thống UniTutor. Rất vui được đồng hành cùng bạn!` });
-                document.getElementById('unread-dot').classList.remove('hidden');
-
                 Swal.fire({
                     icon: 'success',
-                    title: 'Đặt gia sư thành công!',
-                    html: `Đã khóa ký quỹ tạm giữ <strong>${totalCost.toLocaleString('vi-VN')}đ</strong>.<br>Lịch học đang chờ diễn ra. Số tiền này chỉ được thanh toán cho gia sư khi bạn xác nhận hoàn thành!`,
+                    title: 'Đăng ký nhận lớp thành công!',
+                    html: `Hệ thống đã nhận phí dịch vụ và tự động kết nối lớp học. Thông tin phụ huynh/học sinh đã được gửi vào mục <strong>"Tin Nhắn"</strong> của bạn.`,
                     confirmButtonColor: '#0ea5e9',
                     background: '#0f172a',
                     color: '#f8fafc'
@@ -642,7 +573,6 @@
             }
         }
 
-        // HIỂN THỊ TIẾN TRÌNH LỊCH HỌC
         function renderBookings() {
             const container = document.getElementById('bookings-list-container');
             container.innerHTML = '';
@@ -650,32 +580,16 @@
             if (state.bookings.length === 0) {
                 container.innerHTML = `
                     <div class="bg-slate-900 border border-slate-800 rounded-3xl p-12 text-center">
-                        <div class="w-16 h-16 bg-slate-950 rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-800">
-                            <i class="fa-solid fa-calendar-xmark text-slate-500 text-xl"></i>
-                        </div>
-                        <h3 class="heading-font font-bold text-lg text-slate-300">Chưa có buổi học nào được đặt</h3>
-                        <p class="text-slate-500 text-sm mt-1 max-w-sm mx-auto">Hãy tìm kiếm gia sư có môn học bạn cần bên mục "Tìm Gia Sư" và đặt lịch học thử nghiệm ngay!</p>
+                        <h3 class="heading-font font-bold text-lg text-slate-300">Chưa phát sinh giao dịch nhận lớp</h3>
                     </div>
                 `;
                 return;
             }
 
             state.bookings.slice().reverse().forEach(booking => {
-                let statusColor = 'text-amber-400 bg-amber-500/10 border-amber-500/20';
-                let actionButton = '';
-
-                if (booking.status === 'Ký quỹ thành công (Escrow Locked)') {
-                    actionButton = `
-                        <button onclick="completeBooking('${booking.id}')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/10 transition">
-                            <i class="fa-solid fa-circle-check mr-1.5"></i>Xác nhận hoàn thành học
-                        </button>
-                    `;
-                } else if (booking.status === 'Đã hoàn tất học & Giải ngân') {
-                    statusColor = 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20';
-                    actionButton = `
-                        <span class="text-xs text-slate-500 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i> Giao dịch kết thúc an toàn</span>
-                    `;
-                }
+                const statusColor = booking.status.includes('Đã thanh toán') || booking.status.includes('Đã kích hoạt')
+                    ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20'
+                    : 'text-amber-400 bg-amber-500/10 border-amber-500/20';
 
                 container.innerHTML += `
                     <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg">
@@ -685,21 +599,12 @@
                                     <span class="font-bold font-mono text-sky-400">${booking.id}</span>
                                     <span class="${statusColor} border text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">${booking.status}</span>
                                 </div>
-                                <h3 class="font-bold text-slate-200 mt-2 text-base">Gia sư: ${booking.tutorName}</h3>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-clock mr-1"></i> Số giờ học đăng ký: ${booking.hours}h • Thực hiện ngày: ${booking.time}</p>
+                                <h3 class="font-bold text-slate-200 mt-2 text-base">Gia sư / Hoạt động: ${booking.name}</h3>
+                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-circle-info mr-1"></i> Loại dịch vụ: ${booking.type} • Thời gian: ${booking.time}</p>
                             </div>
                             <div class="text-right">
-                                <span class="text-xs text-slate-500 block">Tiền ký quỹ tạm giam</span>
-                                <span class="font-bold text-slate-200 text-lg">${booking.cost.toLocaleString('vi-VN')}đ</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-4 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                            <div class="text-xs text-slate-500 leading-relaxed max-w-md">
-                                <i class="fa-solid fa-circle-info text-sky-400 mr-1"></i> Hệ thống đang bảo lưu số tiền này. Hãy ấn xác nhận sau khi buổi học hoàn thành thực tế để giải phóng dòng tiền.
-                            </div>
-                            <div>
-                                ${actionButton}
+                                <span class="text-xs text-slate-500 block">Doanh thu thu về</span>
+                                <span class="font-bold text-emerald-400 text-lg">+${booking.charge.toLocaleString('vi-VN')}đ</span>
                             </div>
                         </div>
                     </div>
@@ -707,100 +612,23 @@
             });
         }
 
-        // XÁC NHẬN HOÀN THÀNH - GIẢI NGÂN CHI PHÍ (ESCROW RESOLUTION & SYSTEM COMMISSION)
-        async function completeBooking(bookingId) {
-            const booking = state.bookings.find(b => b.id === bookingId);
-            if (!booking) return;
-
-            const systemCommission = booking.cost * 0.15; // 15% hoa hồng vận hành
-            const tutorPayout = booking.cost * 0.85; // 85% thanh toán thực tế cho gia sư
-
-            const { isConfirmed } = await Swal.fire({
-                title: 'Xác nhận hoàn thành buổi học?',
-                html: `Hãy chắc chắn bạn đã hoàn thành buổi học thực tế với gia sư <strong>${booking.tutorName}</strong>.<br>Hệ thống sẽ thực hiện phân chia luồng tiền:<br>
-                - Trả cho gia sư: <strong>${tutorPayout.toLocaleString('vi-VN')}đ</strong> (85%)<br>
-                - Phí nền tảng UniTutor: <strong>${systemCommission.toLocaleString('vi-VN')}đ</strong> (15% hoa hồng)`,
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#10b981',
-                cancelButtonColor: '#334155',
-                confirmButtonText: 'Đồng ý xác nhận & Giải ngân',
-                cancelButtonText: 'Để sau',
-                background: '#0f172a',
-                color: '#f8fafc'
-            });
-
-            if (isConfirmed) {
-                // Giải ngân
-                state.escrow -= booking.cost;
-                booking.status = 'Đã hoàn tất học & Giải ngân';
-
-                // Lưu lịch sử biến động ví của người dùng
-                state.transactions.push({
-                    time: new Date().toLocaleTimeString(),
-                    desc: `Giải tỏa ký quỹ hoàn tất Booking ${booking.id}`,
-                    amount: booking.cost,
-                    type: 'out'
-                });
-
-                saveState();
-
-                // Đánh giá gia sư (Reviewing Popup)
-                const { value: rating } = await Swal.fire({
-                    title: 'Đánh giá chất lượng giảng dạy',
-                    html: `Hãy chấm điểm sao cho gia sư <strong>${booking.tutorName}</strong>:`,
-                    input: 'select',
-                    inputOptions: {
-                        '5': '⭐⭐⭐⭐⭐ Rất tốt - Hiểu bài sâu',
-                        '4': '⭐⭐⭐⭐ Khá ổn - Giảng giải chi tiết',
-                        '3': '⭐⭐⭐ Bình thường - Chấp nhận được',
-                        '2': '⭐⭐ Kém - Không như kỳ vọng',
-                        '1': '⭐ Quá kém - Thiếu chuyên nghiệp'
-                    },
-                    inputPlaceholder: 'Chọn điểm đánh giá',
-                    confirmButtonColor: '#0ea5e9',
-                    confirmButtonText: 'Gửi đánh giá',
-                    background: '#0f172a',
-                    color: '#f8fafc'
-                });
-
-                if (rating) {
-                    const tutorObj = state.tutors.find(t => t.name === booking.tutorName);
-                    if (tutorObj) {
-                        const totalScore = (tutorObj.rating * tutorObj.reviewCount) + parseInt(rating);
-                        tutorObj.reviewCount += 1;
-                        tutorObj.rating = parseFloat((totalScore / tutorObj.reviewCount).toFixed(1));
-                        saveState();
-                    }
-
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Hoàn tất giao dịch!',
-                        text: 'Cảm ơn đóng góp đánh giá của bạn! Hệ thống đã giải ngân thành công tiền dạy cho gia sư.',
-                        confirmButtonColor: '#0ea5e9',
-                        background: '#0f172a',
-                        color: '#f8fafc'
-                    });
-                }
-            }
-        }
-
-        // ĐĂNG KÝ GIA SƯ MỚI (XÁC THỰC GPA >= 3.2)
-        function submitTutorRegistration(event) {
+        // ĐĂNG KÝ GIA SƯ MỚI
+        async function submitTutorRegistration(event) {
             event.preventDefault();
 
             const name = document.getElementById('reg-name').value;
             const university = document.getElementById('reg-university').value;
-            const gpa = parseFloat(document.getElementById('reg-gpa').value);
+            const achievements = document.getElementById('reg-achievements').value;
+            const areas = document.getElementById('reg-areas').value;
             const subjects = document.getElementById('reg-subjects').value;
-            const price = parseInt(document.getElementById('reg-price').value);
+            const proofFile = document.getElementById('reg-proof').value;
 
-            // Rào cản chất lượng đầu vào (GPA tối thiểu 3.2/4.0)
-            if (gpa < 3.2) {
+            // Kiểm tra ràng buộc minh chứng ảnh/file
+            if (!proofFile) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Không đủ điều kiện đầu vào!',
-                    text: 'Dự án A yêu cầu chất lượng đối tác gia sư có GPA tích lũy tối thiểu từ 3.2/4.0 để được đưa vào danh sách hiển thị giảng dạy.',
+                    title: 'Thiếu minh chứng thành tích!',
+                    text: 'Dự án A yêu cầu gia sư bắt buộc phải tải lên hình ảnh bằng cấp, chứng chỉ hoặc thẻ sinh viên để duyệt hiển thị.',
                     confirmButtonColor: '#ef4444',
                     background: '#0f172a',
                     color: '#f8fafc'
@@ -808,30 +636,53 @@
                 return;
             }
 
-            // Thêm gia sư mới
+            // Thu phí đăng ký tài khoản từ gia sư mới (50.000đ)
+            const registrationFee = 50000;
+            state.platform_revenue += registrationFee;
+
+            // Thêm gia sư mới vào danh sách
             const newTutor = {
                 id: state.tutors.length + 1,
                 name: name,
                 university: university,
-                gpa: gpa,
+                achievements: achievements,
                 subjects: subjects,
+                areas: areas,
                 rating: 5.0,
                 reviewCount: 0,
-                price: price,
                 status: 'Online',
-                distance: 'Gần bạn'
+                distance: 'Vừa đăng ký'
             };
 
             state.tutors.push(newTutor);
+
+            // Ghi nhận giao dịch đóng phí đăng ký
+            const newLog = {
+                id: 'AP-' + Math.floor(1000 + Math.random() * 9000),
+                name: name,
+                type: 'Đăng ký & Nộp phí kích hoạt tài khoản',
+                charge: registrationFee,
+                status: 'Đã kích hoạt hồ sơ',
+                time: new Date().toLocaleDateString('vi-VN') + ' - ' + new Date().toLocaleTimeString('vi-VN')
+            };
+
+            state.bookings.push(newLog);
+            state.transactions.push({
+                time: new Date().toLocaleTimeString(),
+                desc: `Phí kích hoạt tài khoản gia sư: ${name}`,
+                amount: registrationFee,
+                type: 'in'
+            });
+
             saveState();
 
-            // Reset form
+            // Reset form đăng ký
             document.getElementById('tutor-register-form').reset();
 
             Swal.fire({
                 icon: 'success',
-                title: 'Hồ sơ đã được phê duyệt tự động!',
-                text: 'Hồ sơ của bạn đã được kiểm duyệt tự động dựa trên mức GPA. Bạn đã được thêm vào mạng lưới tìm kiếm UniTutor!',
+                title: 'Nộp phí & Đăng ký thành công!',
+                html: `Hệ thống đã ghi nhận phí kích hoạt <strong>50.000đ</strong>.<br>Hồ sơ của bạn kèm ảnh minh chứng đã được duyệt tự động thành công và hiển thị trên UniTutor!`,
                 confirmButtonColor: '#0ea5e9',
                 background: '#0f172a',
                 color: '#f8fafc'
@@ -840,7 +691,7 @@
             });
         }
 
-        // TRÌNH CHAT VÀ BOT PHẢN HỒI THÔNG MINH MOCKUP
+        // KHỞI CHẠY TRÒ CHUYỆN VỚI GIA SƯ
         function startChat(tutorName) {
             state.activeChat = tutorName;
             
@@ -895,11 +746,11 @@
         }
 
         function renderEmptyChatBox() {
-            document.getElementById('chat-header').innerHTML = `<p class="text-sm text-slate-500">Vui lòng chọn một gia sư để bắt đầu đàm phán</p>`;
+            document.getElementById('chat-header').innerHTML = `<p class="text-sm text-slate-500">Chọn một gia sư để trao đổi và nhận lớp dạy</p>`;
             document.getElementById('chat-messages-container').innerHTML = `
                 <div class="h-full flex flex-col items-center justify-center text-center text-slate-500">
                     <i class="fa-solid fa-comments text-5xl mb-3 text-slate-700"></i>
-                    <p class="text-sm max-w-xs leading-relaxed">Kết nối đàm phán về thời gian học tập, giáo trình môn học trực tiếp với gia sư trước khi ký quỹ khóa đặt chỗ.</p>
+                    <p class="text-sm max-w-xs leading-relaxed">Kết nối đàm phán trực tiếp về học phí, thời gian và địa điểm học với gia sư trước khi làm việc.</p>
                 </div>
             `;
         }
@@ -908,7 +759,6 @@
             const tutor = state.activeChat;
             const messages = state.chatHistory[tutor] || [];
 
-            // Render Header Chat
             document.getElementById('chat-header').innerHTML = `
                 <div class="flex items-center space-x-3">
                     <div class="w-9 h-9 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center font-bold text-sky-400 text-xs">
@@ -919,10 +769,8 @@
                         <span class="text-[9px] text-emerald-400 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1"></span> Đang trực tuyến</span>
                     </div>
                 </div>
-                <button onclick="bookingRequest(state.tutors.find(t=>t.name==='${tutor}')?.id)" class="bg-gradient-to-r from-sky-400 to-emerald-400 text-slate-950 text-xs px-3.5 py-1.5 rounded-xl font-bold hover:opacity-90 transition">Đặt ngay</button>
             `;
 
-            // Render Messages
             const msgContainer = document.getElementById('chat-messages-container');
             msgContainer.innerHTML = '';
 
@@ -950,7 +798,6 @@
                 }
             });
 
-            // Tự động cuộn xuống đáy tin nhắn
             msgContainer.scrollTop = msgContainer.scrollHeight;
         }
 
@@ -962,31 +809,29 @@
 
             const activeTutor = state.activeChat;
 
-            // Thêm tin nhắn của tôi
             state.chatHistory[activeTutor].push({ sender: 'Me', text: text });
             input.value = '';
             saveState();
 
-            // Trả lời tự động thông minh của gia sư dựa trên môn học (Bot Simulate)
+            // Trả lời tự động của Gia sư mô phỏng (Bot Simulation)
             setTimeout(() => {
-                let botAnswer = "Dạ chào bạn, bạn cần mình hỗ trợ ôn thi phần nào của môn học này ạ?";
+                let botAnswer = "Dạ mình chào bạn, mình có thể hỗ trợ dạy kèm trực tiếp tại khu vực đăng ký hoặc dạy online nhé. Bạn cần học môn gì ạ?";
                 
                 const lowerText = text.toLowerCase();
-                if (lowerText.includes('giải tích') || lowerText.includes('đại số') || lowerText.includes('toán')) {
-                    botAnswer = "Môn Toán này mình có chuẩn bị sẵn file đề cương rút gọn lý thuyết và bộ 5 đề thi thử sát với đề thi thật trường mình đấy. Bạn muốn học online hay offline?";
-                } else if (lowerText.includes('giá') || lowerText.includes('bao nhiêu') || lowerText.includes('học phí')) {
-                    const price = state.tutors.find(t=>t.name === activeTutor)?.price || 80000;
-                    botAnswer = `Học phí của mình được tính chuẩn trên hệ thống là ${price.toLocaleString('vi-VN')}đ/giờ. Bạn cứ đặt lịch trên app, ví trung gian sẽ giữ tiền ký quỹ để đảm bảo quyền lợi nhé!`;
+                if (lowerText.includes('giải tích') || lowerText.includes('toán') || lowerText.includes('đại số')) {
+                    botAnswer = "Môn Toán này mình có chuẩn bị sẵn giáo án và tài liệu ôn tập của các năm trước để kèm bạn. Bạn muốn học trực tiếp hay online?";
+                } else if (lowerText.includes('địa chỉ') || lowerText.includes('khu vực') || lowerText.includes('ở đâu') || lowerText.includes('dạy trực tiếp')) {
+                    const tutorObj = state.tutors.find(t=>t.name === activeTutor);
+                    botAnswer = `Khu vực mình có thể hỗ trợ dạy học là: ${tutorObj ? tutorObj.areas : 'Các quận nội thành Hà Nội'}. Chúng ta có thể hẹn gặp học trực tiếp ở các quán cafe học tập hoặc thư viện đại học nhé!`;
                 } else if (lowerText.includes('lập trình') || lowerText.includes('code') || lowerText.includes('python')) {
-                    botAnswer = "Môn Lập trình này mình sẽ kèm trực tiếp thực hành viết code nhé. Mình sẽ sửa lỗi debug cho bạn hiểu nguyên lý hoạt động của biến và luồng logic.";
-                } else if (lowerText.includes('rảnh') || lowerText.includes('giờ') || lowerText.includes('thời gian')) {
-                    botAnswer = "Mình rảnh hầu hết các buổi tối trong tuần và cả ngày Chủ Nhật. Bạn rảnh lịch nào cứ đăng ký đặt lịch, hệ thống sẽ báo ngay cho mình.";
+                    botAnswer = "Môn lập trình thì mình sẽ hướng dẫn thực hành viết code từng dòng trực quan cho bạn dễ tiếp thu nhất nhé.";
+                } else if (lowerText.includes('học phí') || lowerText.includes('giá cả') || lowerText.includes('tiền')) {
+                    botAnswer = "Học phí thì tùy thuộc vào số buổi bạn muốn học và nội dung yêu cầu, tụi mình tự do thương lượng trực tiếp cho thoải mái nhé. Phía UniTutor đã duyệt minh chứng bằng cấp của mình rồi nên bạn hoàn toàn yên tâm!";
                 }
 
                 state.chatHistory[activeTutor].push({ sender: activeTutor, text: botAnswer });
                 saveState();
                 
-                // Tiếng chuông báo hiệu
                 document.getElementById('unread-dot').classList.remove('hidden');
             }, 1200);
         }
@@ -1007,14 +852,14 @@
                                 <p class="text-xs text-slate-400">${tutor.university}</p>
                             </div>
                         </div>
-                        <p class="text-slate-300"><strong><i class="fa-solid fa-graduation-cap text-sky-400 mr-1.5"></i> GPA tích lũy:</strong> <span class="text-emerald-400 font-bold">${tutor.gpa} / 4.0</span> (Đã xác minh)</p>
-                        <p class="text-slate-300"><strong><i class="fa-solid fa-book text-sky-400 mr-1.5"></i> Môn học thế mạnh:</strong> <br><span class="text-xs bg-slate-950 p-2 py-1 rounded block border border-slate-900 mt-1">${tutor.subjects}</span></p>
-                        <p class="text-slate-300"><strong><i class="fa-solid fa-star text-amber-400 mr-1.5"></i> Điểm đánh giá:</strong> ${tutor.rating} ⭐ (${tutor.reviewCount} đánh giá thật từ sinh viên đại học)</p>
-                        <p class="text-slate-300"><strong><i class="fa-solid fa-tags text-emerald-400 mr-1.5"></i> Đơn giá:</strong> <span class="text-emerald-400 font-bold">${tutor.price.toLocaleString('vi-VN')}đ</span> / giờ</p>
+                        <p class="text-slate-300"><strong><i class="fa-solid fa-map-location-dot text-sky-400 mr-1.5"></i> Khu vực hỗ trợ:</strong> <span class="text-emerald-400 font-bold">${tutor.areas}</span></p>
+                        <p class="text-slate-300"><strong><i class="fa-solid fa-award text-sky-400 mr-1.5"></i> Chứng chỉ & Thành tích:</strong> <br><span class="text-xs bg-slate-950 p-2 py-1.5 rounded block border border-slate-900 mt-1">${tutor.achievements}</span></p>
+                        <p class="text-slate-300"><strong><i class="fa-solid fa-star text-amber-400 mr-1.5"></i> Điểm đánh giá:</strong> ${tutor.rating} ⭐ (${tutor.reviewCount} đánh giá chất lượng)</p>
+                        <p class="text-slate-300"><strong><i class="fa-solid fa-book text-sky-400 mr-1.5"></i> Các môn nhận dạy:</strong> <span class="text-sky-400 font-bold">${tutor.subjects}</span></p>
                     </div>
                 `,
                 confirmButtonColor: '#0ea5e9',
-                confirmButtonText: 'Đặt gia sư này',
+                confirmButtonText: 'Chat với gia sư này',
                 showCancelButton: true,
                 cancelButtonColor: '#334155',
                 cancelButtonText: 'Để sau',
@@ -1022,27 +867,7 @@
                 color: '#f8fafc'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    bookingRequest(tutor.id);
-                }
-            });
-        }
-
-        // Nhấp định vị mockup trên bản đồ -> Highlight gia sư trong list
-        function highlightTutor(tutorName) {
-            Swal.fire({
-                title: tutorName,
-                text: `Đang định vị cách bạn khoảng ${state.tutors.find(t=>t.name === tutorName)?.distance}. Bạn muốn liên hệ đàm phán ngay chứ?`,
-                icon: 'info',
-                showCancelButton: true,
-                confirmButtonColor: '#0ea5e9',
-                cancelButtonColor: '#334155',
-                confirmButtonText: 'Chat với gia sư',
-                cancelButtonText: 'Hủy bỏ',
-                background: '#0f172a',
-                color: '#f8fafc'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    startChat(tutorName);
+                    startChat(tutor.name);
                 }
             });
         }
